@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Valentine</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-image: url("spider 23.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+
+}
+
+.container {
+    max-width: 500px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #ddd;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.media {
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+img, video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+button {
+    padding: 12px 28px;
+    font-size: 16px;
+    margin: 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+#yesBtn {
+    background: #ff4d6d;
+    color: white;
+}
+
+#noBtn {
+    background: #ddd;
+}
+
+/* NEW: smooth fade animation */
+#buttons {
+    transition: opacity 0.5s ease;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Will</h1>
+
+    <div class="media">
+        <!-- Replace with your image -->
+        <img id="photo" src="co 1.jpg" />
+
+        <!-- Replace with your video -->
+        <video id="video" src="Val 2 video.mov" style="display:none;"></video>
+    </div>
+
+    <!-- NEW: wrapped buttons -->
+    <div id="buttons">
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+    </div>
+
+    <!-- Replace with your music -->
+    <audio id="music" src="music.mp3"></audio>
+
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const photo = document.getElementById("photo");
+const video = document.getElementById("video");
+const music = document.getElementById("music");
+const buttons = document.getElementById("buttons");
+
+const messages = [
+    "Girl",
+    "Are you frrr",
+    "Njeri Babeee ",
+    "Kimenyi walai please"
+];
+
+let index = 0;
+
+noBtn.onclick = () => {
+    if (index < messages.length) {
+        noBtn.textContent = messages[index];
+        index++;
+    }
+};
+
+yesBtn.onclick = () => {
+    // switch media
+    photo.style.display = "none";
+    video.style.display = "block";
+    video.play();
+    music.play();
+
+    // smooth fade out
+    buttons.style.opacityction = "none";
+    buttons.style.opacity = "0";
+
+    // remove after fade completes
+    setTimeout(() => {
+        buttons.remove();
+    }, 500);
+};
+</script>
+
+</body>
+</html>
